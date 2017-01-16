@@ -1,0 +1,10 @@
+<!-- Load the scatter_load program. -->
+<Data>
+	<Hex address="${%LOAD_ADDRESS%}">
+${%PROGRAM_DATA%}
+	</Hex>
+</Data>
+<Execute>
+	<Address>${%EXECUTION_ADDRESS%}</Address>
+	<R0>%%LIST%%</R0>
+</Execute>
