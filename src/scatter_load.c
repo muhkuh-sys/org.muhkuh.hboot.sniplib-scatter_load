@@ -80,7 +80,7 @@ void start(const unsigned long *pulCopyList)
 	ulValue = *(pulCnt++);
 	if( ulValue!=0 )
 	{
-		app_cpu_start();
+		start_app_cpu();
 	}
 
 	/* Write the address to the vector. */

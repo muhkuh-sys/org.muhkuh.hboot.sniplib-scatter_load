@@ -2,7 +2,7 @@
 #define __START_APP_CPU_H__
 
 
-void app_cpu_start(void);
+void start_app_cpu(void);
 
 
 #endif  /* __START_APP_CPU_H__ */

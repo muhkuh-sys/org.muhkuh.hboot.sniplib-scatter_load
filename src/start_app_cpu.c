@@ -41,7 +41,7 @@ typedef struct NETX90_APP_CPU_IFLASH_IMAGE_STRUCT
 extern const NETX90_APP_CPU_IFLASH_IMAGE_T tAppCpuIntflashImage;
 
 
-void app_cpu_start(void)
+void start_app_cpu(void)
 {
 	HOSTDEF(ptAsicCtrlArea);
 	HOSTDEF(ptHashArea);
