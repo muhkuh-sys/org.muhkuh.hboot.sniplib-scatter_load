@@ -37,15 +37,25 @@ SConscript('platform/SConscript')
 
 #----------------------------------------------------------------------------
 #
+# Get the source code version from the VCS.
+#
+atEnv.DEFAULT.Version('#targets/version/version.h', 'templates/version.h')
+
+
+#----------------------------------------------------------------------------
+#
 # Build all files.
 #
 sources = """
+	src/header.c
 	src/scatter_load.c
+	src/sha384.c
+	src/start_app_cpu.c
 	src/vectors_com_intram.c
 """
 
 # The list of include folders. Here it is used for all files.
-astrIncludePaths = ['src', '#platform/src', '#platform/src/lib']
+astrIncludePaths = ['src', '#platform/src', '#platform/src/lib', '#targets/version']
 
 tEnv = atEnv.NETX90_MPW.Clone()
 tEnv.Append(CPPPATH = astrIncludePaths)

@@ -39,6 +39,9 @@ SECTIONS
 		*(.glue*)
 		*(.vfp11_veneer)
 		*(.v4_bx)
+		*(.iplt)
+		*(.igot.plt)
+		*(.rel.iplt)
 	} >ASSERT_EMPTY
 
 
@@ -67,7 +70,7 @@ SECTIONS
 
 	.stack :
 	{
-		. = ORIGIN(INTRAM) + LENGTH(INTRAM);
+		. = . + 0x0100;
 		PROVIDE ( stack_top = . );
 	} >INTRAM
 
@@ -76,6 +79,7 @@ SECTIONS
 	{
 		PROVIDE ( tAppCpuIntflashImage = . );
 	} > IFLASH
+
 
 	/* Stabs debugging sections.  */
 	.stab          0 : { *(.stab) }

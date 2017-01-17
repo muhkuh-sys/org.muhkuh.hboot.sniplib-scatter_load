@@ -5,6 +5,7 @@
 #include "rdy_run.h"
 #include "systime.h"
 
+#include "start_app_cpu.h"
 #include "vectors_com_intram.h"
 
 
@@ -52,6 +53,7 @@ void start(const unsigned long *pulCopyList)
 	const unsigned long *pulSrc;
 	unsigned long ulSizeBytes;
 	unsigned int uiCnt;
+	unsigned long ulValue;
 
 
 	pulCnt = pulCopyList;
@@ -72,6 +74,13 @@ void start(const unsigned long *pulCopyList)
 	for(uiCnt=0; uiCnt<5; ++uiCnt)
 	{
 		tExec.aul[uiCnt] = *(pulCnt++);
+	}
+
+	/* Start the APP CPU? */
+	ulValue = *(pulCnt++);
+	if( ulValue!=0 )
+	{
+		app_cpu_start();
 	}
 
 	/* Write the address to the vector. */
